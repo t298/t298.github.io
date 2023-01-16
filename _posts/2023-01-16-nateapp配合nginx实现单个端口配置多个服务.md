@@ -65,9 +65,46 @@ server {
 }
 ```
 
+第一个问题是因为try_files重定向的时候会使用nginx的内部地址和端口，我们加个条件判断一下就可以了
+
+```xml
+ if (-d $request_filename) {
+ rewrite [^/]$ $scheme://$http_host$uri/ permanent;
+}
+```
 
 
 
+第二个问题是因为outer 把二级目录也当成路由了，我们加个配置就好
 
+nginx配置：
 
+```xml
+# 模型平台前端入口
+   	location /model{
+ 		if (-d $request_filename) {
+ 		rewrite [^/]$ $scheme://$http_host$uri/ permanent;
+	}
+        alias  C:/Users/DELL/.jenkins/workspace/model-platform-ui/manageBackground/dist;
+		try_files $uri $uri/ /model/index.html;
+        index  index.html index.htm;
+}
+```
+
+vue.config的配置：
+
+```vue
+publicPath: process.env.NODE_ENV === "production" ? "/model/" : "/model/",
+```
+
+router/index.js配置：
+
+```js
+export default new Router({
+  mode: 'history', // 去掉url中的#
+  base:'/model/',
+  scrollBehavior: () => ({ y: 0 }),
+  routes: constantRoutes
+})
+```
 
