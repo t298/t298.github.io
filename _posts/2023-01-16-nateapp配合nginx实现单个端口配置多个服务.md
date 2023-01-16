@@ -17,14 +17,18 @@ tags:								#标签
 ## nateapp配合nginx实现单个端口配置多个服务
 
 1. 现在的情况是服务器没有外网地址，只能用netapp来转发3001端口到外网访问，而我们还有其他的两个项目也想通过nginx来实现外网访问。
-2. 我们的项目都是前后端分离式，所以如果有2个项目的话，我们应该在nginx上的server有4个location，第一个项目(地下水)路径是'/'，访问没有问题。第二个项目(模型平台)的访问路径是'/model'，在访问的时候会出现两个问题：
-   - 访问的路径是'http://xxxx.com:/model/',但是路径会变成'http://hrhy.natapp1.cc:3001/model/',手动的将端口号删除之后是可以正常访问的。
+
+2. 我们的项目都是前后端分离式，所以如果有2个项目的话，我们应该在nginx上的server有4个location，第一个项目(地下水)路径是'/'，直接用natapp的域名访问没有问题。第二个项目(模型平台)的访问路径是'/model'，在访问的时候会出现两个问题：
+   - 访问的路径是'http://xxx.natapp.cc/model',但是路径会变成'http://xxx.natapp.cc:3001/model/',手动的将端口号删除之后是可以正常访问的。
+   
+     是要以http://xxx.natapp1.cc/model/来访问的嘛？可以我nginx的路径写的也是/model。
+   
    - 正常访问，输入用户名密码之后会进入到系统的404页面，需要点击404页面的返回首页才可以正常访问系统。
 
 ```xml
 server {
         listen       3001;
-        server_name  hrhy.natapp1.cc;
+        server_name  XXX.natapp.cc;
 
 # 地下水前端
         		location / {
@@ -43,7 +47,7 @@ server {
 
 # 模型平台前端
    				location /model {
-                alias  C:/Users/DELL/.jenkins/workspace/model-platform-ui/manageBackground/dist;
+                alias  C:/Users/DELL/.jenkins/workspace/xxx/xxxx/dist;
    				try_files $uri $uri/ /index.html;
                 index  index.html index.htm;
         }
@@ -60,4 +64,10 @@ server {
             	root   html;
 }
 ```
+
+
+
+
+
+
 
