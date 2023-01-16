@@ -1,6 +1,6 @@
 ---
 layout:     post   				    # 使用的布局（不需要改）
-title:nateapp配合nginx实现单个端口配置多个服务			# 标题 
+title:       nateapp配合nginx实现单个端口配置多个服务			# 标题 
 subtitle:  #副标题
 date:       2023-01-16				# 时间
 author:     t298						# 作者
