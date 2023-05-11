@@ -1,4 +1,17 @@
-## 本地nacos连接docker里的mysql，一直提示No DataSource Set？
+---
+
+layout:     post   				    		# 使用的布局（不需要改）
+title:      本地nacos连接docker里的mysql，一直提示No DataSource Set？		# 标题 
+subtitle:  									# 副标题
+date:       2023-05-11						# 时间
+author:     t298							# 作者
+header-img: img/fj.jpg					#这篇文章标题背景图片
+catalog: 	true 								# 是否归档
+tags:										#标签
+
+    - bug
+
+---
 
 ### 环境描述：
 

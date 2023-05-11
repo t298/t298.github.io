@@ -1,3 +1,18 @@
+---
+
+layout:     post   				    		# 使用的布局（不需要改）
+title:      使用docker安装了带有maven的jenkins容器，但是maven不能使用？		# 标题 
+subtitle:  									# 副标题
+date:       2023-05-11						# 时间
+author:     t298							# 作者
+header-img: img/fj.jpg					#这篇文章标题背景图片
+catalog: 	true 								# 是否归档
+tags:										#标签
+
+    - bug
+
+---
+
 ## 使用docker安装了带有maven的jenkins容器，但是maven不能使用？
 
 确定看到了maven的安装包，也配置了环境变量，但是就是不能使用maven命令，提示没有此命令。进入安装包的bin目录依旧是这个情况。

@@ -1,3 +1,18 @@
+---
+
+layout:     post   				    		# 使用的布局（不需要改）
+title:      使用JacksonConfig处理id的时候只处理16位以上的id		# 标题 
+subtitle:  									# 副标题
+date:       2023-05-11						# 时间
+author:     t298							# 作者
+header-img: img/fj.jpg					#这篇文章标题背景图片
+catalog: 	true 								# 是否归档
+tags:										#标签
+
+    - bug
+
+---
+
 我们在使用`JacksonConfig`来处理雪花id过长时会发现将所有的id都转换成了string，所以我们需要对id进行一个处理
 
 ```java
