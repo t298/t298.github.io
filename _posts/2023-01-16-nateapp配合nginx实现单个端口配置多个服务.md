@@ -8,8 +8,6 @@ header-img: img/wallhaven-4grwgd.png 	#这篇文章标题背景图片
 catalog: true 						# 是否归档
 tags:								#标签
     - issue
-    
-
 ---
 
 
